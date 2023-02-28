@@ -1,0 +1,18 @@
+.error-page{
+    width: 100vw;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10rem;
+    font-family: $font-family;
+    gap:2rem;
+    color:#fff;
+    font-size: 3rem;
+}
+.back-btn{
+    display: flex;
+    align-items: center;
+    gap:5px;
+}

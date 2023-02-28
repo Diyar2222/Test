@@ -1,0 +1,27 @@
+$backgroundColor:#101012;
+$orangeColor:#E75626;
+$font-family: 'Bebas Neue', cursive;
+a{
+    text-decoration: none;
+}
+
+@mixin button{
+    font-family: 'Bebas Neue',cursive;
+    background-color: $orangeColor;
+    color: #ffffff;
+    border-radius: 30px;
+    padding: 10px 24px 7px 24px;
+    border: none;
+    // text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 18px;
+    width: auto;
+    height: auto;
+}
+
+@mixin media-desktop {
+    @media screen and (max-width:1040px){
+        @content
+    }
+};

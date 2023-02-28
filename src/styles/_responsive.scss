@@ -1,0 +1,21 @@
+@include media-desktop{
+    .body{
+        flex-direction: column;
+       align-items: flex-start;
+       padding: 50px;
+       gap:50px;
+    }
+    .roadmap{
+        flex-direction: row;
+        // background-color:bisque ;
+        width: auto;
+        &-stats{
+            width: auto;
+        }
+    }
+    .underline{
+        width: 1px;
+        height: 60px;
+        background-color:#D2C4C4
+    }
+}

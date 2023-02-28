@@ -1,0 +1,53 @@
+@keyframes pulse {
+    from {
+        opacity:1;
+        transform: scale(1);
+    }
+    to{
+        opacity: 0.25;
+        transform: scale(0.75);
+    }
+}
+.loading {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    z-index: 10;
+    background-color: #000;
+    transform: opacity .5s linear;
+}
+.spinner-box {
+    position:absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    margin: 0;
+}
+.pulse-container{
+    width: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.pulse-bubble{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: $orangeColor;
+}
+.bubble-1{
+    animation:pulse .4s ease 0s infinite alternate
+}
+.bubble-2{
+    animation:pulse .4s ease 0.2s infinite alternate
+}
+.bubble-3{
+    animation:pulse .4s ease 0.4s infinite alternate
+}
