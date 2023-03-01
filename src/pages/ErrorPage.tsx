@@ -5,7 +5,7 @@ export const ErrorPage = () => {
     return (
     <div className='error-page'>
       <h1>Page doesn't exist</h1>
-      <Link to='/'><button className='back-btn'><BsArrowLeft/> Back</button></Link>
+      <Link to='/'><button className='button'><BsArrowLeft/> Back</button></Link>
     </div>
   )
 }

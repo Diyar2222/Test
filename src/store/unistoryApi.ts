@@ -1,5 +1,5 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
-import { IUser, ServerResponse } from '../models/models'
+import { IUser, ServerResponse } from '../interfaces/interfaces'
 
 export const unistoryApi = createApi({
     reducerPath:'unistory',

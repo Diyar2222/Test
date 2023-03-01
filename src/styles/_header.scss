@@ -1,4 +1,4 @@
-nav{
+header{
     width: 100%;
     height: 72px;
     background-color: $backgroundColor;
@@ -20,10 +20,9 @@ nav{
         font-family:$font-family;
 
     }
-}
-
-.wallet-address{
-    color:$orangeColor;
-    font-size: 18px;
-    font-family: $font-family;
+    .wallet-address{
+        color:$orangeColor;
+        font-size: 18px;
+        font-family: $font-family;
+    }
 }

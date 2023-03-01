@@ -1,4 +1,3 @@
-import React from 'react'
 import { PlanetCircle } from './PlanetCircle'
 
 export const Body_Top= () => {
@@ -10,7 +9,7 @@ export const Body_Top= () => {
         </div>
       <PlanetCircle/>
         <div className='roadmap'>
-            <h2 className='roadmap__title'>ROADMAP STATS</h2>
+          <h1 className='roadmap__title'>ROADMAP STATS</h1>
           <div>
             <h2 className='roadmap-numbers'>12,345</h2>
             <p>Lorem, ipsum dolor.</p>

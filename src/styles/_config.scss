@@ -1,10 +1,30 @@
 $backgroundColor:#101012;
 $orangeColor:#E75626;
 $font-family: 'Bebas Neue', cursive;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    max-width: 100vw;
+    min-height: 100vh;
+    overflow-y: auto;
+    background-color: $backgroundColor;
+    overflow-x: hidden;
+}
 a{
     text-decoration: none;
 }
-
+@mixin planet-circles{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #323232;
+    background-color: #1e1e20;
+    border-radius: 50%;
+}
 @mixin button{
     font-family: 'Bebas Neue',cursive;
     background-color: $orangeColor;
@@ -12,7 +32,6 @@ a{
     border-radius: 30px;
     padding: 10px 24px 7px 24px;
     border: none;
-    // text-transform: uppercase;
     font-weight: 700;
     cursor: pointer;
     font-size: 18px;
@@ -21,7 +40,12 @@ a{
 }
 
 @mixin media-desktop {
-    @media screen and (max-width:1040px){
+    @media screen and (max-width:1045px){
+        @content
+    }
+};
+@mixin user-page-media {
+    @media screen and (max-width:925px){
         @content
     }
 };

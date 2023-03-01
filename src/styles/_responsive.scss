@@ -1,21 +1,49 @@
 @include media-desktop{
-    .body{
+    .body__top{
         flex-direction: column;
-       align-items: flex-start;
+       align-items: center;
+       justify-content: center;
        padding: 50px;
        gap:50px;
     }
     .roadmap{
         flex-direction: row;
-        // background-color:bisque ;
         width: auto;
-        &-stats{
+        &__title{
             width: auto;
+            margin-right: 50px;
+            margin-bottom: 0;
+            text-align: center;
+        }
+        .underline {
+            width: 1px;
+            height: 50px;
         }
     }
-    .underline{
-        width: 1px;
-        height: 60px;
-        background-color:#D2C4C4
+    .body__bottom{
+        display: flex;
+        flex-direction: column;
+        &-left-info{
+                width: 300px;
+        }
+    }
+    .table-container{
+        max-height: 400px;
+    }
+}
+@include user-page-media{
+    .user-page{
+        &-title{
+            font-size: 36px;
+            margin: 50px 0;
+        }
+        &-data{
+            color:$orangeColor;
+            font-size: 25px;
+            margin-bottom: 25px;
+        }
+    }
+    .user-page-planet{
+        display: none;
     }
 }

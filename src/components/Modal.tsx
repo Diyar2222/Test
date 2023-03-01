@@ -1,17 +1,9 @@
-import React, { useState,useRef,useEffect } from 'react';
-import { Button } from './Button';
+import React, { useState,useRef } from 'react';
 
 function Modal() {
   const [showModal, setShowModal] = useState(true);
   const modalRef = useRef(null)
-  useEffect(() => {
-    const alreadyShown = localStorage.getItem('modalShown');
-
-    if (alreadyShown) {
-      setShowModal(false);
-      localStorage.setItem('modalShown', 'true');
-    }
-  }, []);
+ 
   //Функция для закрытия модального окна
   const handleCloseModal = () => {
     setShowModal(false);
@@ -30,7 +22,7 @@ function Modal() {
         <div className='modal__body'>To work with our application, you have to install the   
             <span className='modal__body orange'> Metamask browser extension</span>
         </div>
-        <Button text='Skip this step' onClick={handleCloseModal}/>
+        <button className='button' onClick={handleCloseModal}>Skip this step</button>
       </div>
     </div>
   );

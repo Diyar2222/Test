@@ -17,6 +17,18 @@ export interface ServerResponse {
     meta: Meta;
     items: IUser[];
 }
+// интерфейсы для формы
+export interface INewUser {
+    name: string;
+    email: string;
+  };
+export interface InputFormProps {
+    newUser: INewUser;
+    userAdded: boolean;
+    setUserAdded: (added: boolean) => void;
+    setNewUser: (user: INewUser) => void;
+  }
+  
 
 
 

@@ -36,16 +36,18 @@
     &__title{
         color:#fff;
         margin-bottom: 20px;
+        width: auto;
+    }
+    .underline{
+        width: 100%;
+        height: 1px;
+        background-color: #D2C4C4;
     }
 }
-.underline{
-    width: 100%;
-    height: 1px;
-    background-color: #D2C4C4;
-}
+
 .body__bottom{
     display: grid;
-    gap:150px;
+    gap:70px;
     grid-template-columns: 1fr 2fr;
     padding: 0 65px;
     margin-bottom: 100px;
@@ -58,13 +60,13 @@
             flex-direction: column;
             gap:10px;
         }
-        h1{
+        &-title{
             font-size: 36px;
             color: $orangeColor;
             font-weight: 700;
             font-family: $font-family;
         }
-        p{
+        &-info{
             color: #fff;
             font-size: 16px;
             text-align: left;
@@ -79,7 +81,7 @@
             font-family: $font-family;
         }
         input{
-            background-color: transparent;
+            background-color: $backgroundColor;
             border-radius: 40px;
             padding: 10px;
             border: 1px solid #fff;
@@ -109,47 +111,23 @@
         }
     }
 }
-.table-container{
-    height: 100%;
-    overflow-y: scroll; /* Add a vertical scrollbar when content exceeds max height */
-}
-table{
-    width: 90%;
-    border-collapse: collapse; /* Remove border spacing between cells */
-    color:#fff;
-    a{
-        display: contents;
-        text-decoration: none;
-        color:#fff;
-    }
-}
-.added-user{
-    color:$orangeColor;
-    align-items: center;
-}
-.delete-td{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-th{
-    font-size: 24px;
+.user-name,.user-email{
+    font-size: 36px;
+    color: $orangeColor;
+    font-weight: 700;
     font-family: $font-family;
 }
-th,
-td {
-  padding: 10px 0 10px 10px; /* Add some padding for readability */
-  text-align: left; /* Align text to the left */
-  border-bottom: 1px solid #fff;
+// удаление автозаполнения
+input:-webkit-autofill{
+    -webkit-text-fill-color: #fff !important;
 }
-td{
-    font-size: 14px;
-   
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 9999s ease-in-out 0s;
 }
-.delete-icon{
-    font-size: 16px;
-    cursor: pointer;
-}
+// неправильный формат инпутов
 input:invalid{
     border:1px solid red;
 }
@@ -158,13 +136,3 @@ input:invalid{
     font-size: 14px;
 }
 
-.table-container::-webkit-scrollbar {
-    width:2px;
-}
-.table-container::-webkit-scrollbar-track{
-    background-color: #fff;
-}
-.table-container::-webkit-scrollbar-thumb{
-    background-color: $orangeColor;
-    border-radius: 10px;
-}
