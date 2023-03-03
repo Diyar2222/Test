@@ -1,11 +1,10 @@
 import {useState} from 'react';
-import { Formik } from "formik";
+import { Formik,FormikHelpers } from "formik";
 import * as Yup from "yup";
-import {InputFormProps, INewUser} from '../interfaces/interfaces'
+import { InputFormProps, INewUser} from '../interfaces/interfaces'
 import { useEthers } from "@usedapp/core";
 
-
-export const InputForm = ({userAdded, setUserAdded,newUser,setNewUser }: InputFormProps) => {
+export const InputForm = ({userAdded, setUserAdded,newUser,setNewUser,setShowTable }: InputFormProps) => {
   const [userConnected,setUserConnected] = useState(true)
   const { account } = useEthers(); // кошелек для отображения в таблице
   const initialValues = { //начальные данные пользователя для Formik формы
@@ -19,15 +18,16 @@ export const InputForm = ({userAdded, setUserAdded,newUser,setNewUser }: InputFo
     email: Yup.string().email("Invalid email").required("Email is required"),
   });
   // функция для того чтобы добавить пользователя после заполнения формы
-  const handleSubmit = (values: INewUser) => {
+  const handleSubmit = (values: INewUser,{ resetForm }: FormikHelpers<INewUser>) => {
     if(account) {
       setNewUser(values);
       setUserAdded(true);
       setUserConnected(true)
+      setShowTable(true)
+      resetForm()
     } else {
       setUserConnected(false)
     }
-   
   };
   return (
     <Formik

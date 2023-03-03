@@ -6,6 +6,7 @@ import { InputForm } from './InputForm';
 export const Body_Bottom = () => {
   const [newUser,setNewUser] = useState({name:'',email:''}) //данные для отображения имени и почты 
   const [userAdded, setUserAdded] = useState(false) // проверка добавлен ли пользователь чтобы отобразить таблицу
+  const [showTable,setShowTable] = useState(false)
   return (
     <div className='body__bottom'>
         <div className='body__bottom-left'>
@@ -15,13 +16,18 @@ export const Body_Bottom = () => {
                 cupiditate ad ducimus accusantium. Hic dignissimos nulla officia alias sed?
             </p>
             <InputForm
+            setShowTable={setShowTable}
             userAdded={userAdded}
             setUserAdded={setUserAdded}
             setNewUser={setNewUser}
             newUser={newUser}
             />
         </div>
-        {userAdded && <Table name={newUser.name} email={newUser.email}/>} 
+        <Table 
+        showTable={showTable}
+        userAdded={userAdded} 
+        setUserAdded={setUserAdded}
+        newUser={newUser} /> 
     </div>
   )
 }

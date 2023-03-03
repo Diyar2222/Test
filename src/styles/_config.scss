@@ -38,9 +38,18 @@ a{
     width: auto;
     height: auto;
 }
-
+@mixin large-desktop {
+    @media screen and (max-width:1190px){
+        @content
+    }
+};
 @mixin media-desktop {
-    @media screen and (max-width:1045px){
+    @media screen and (max-width:1020px){
+        @content
+    }
+};
+@mixin media-desktop-title {
+    @media screen and (max-width:710px){
         @content
     }
 };

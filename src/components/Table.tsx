@@ -3,20 +3,22 @@ import { TiDeleteOutline } from "react-icons/ti";
 import { Link } from "react-router-dom";
 import { useSearchUsersQuery } from "../store/unistoryApi";
 import { useEthers } from "@usedapp/core";
-import { INewUser } from "../interfaces/interfaces";
-export const Table = ({ name, email }: INewUser) => {
+import { TableProps } from "../interfaces/interfaces";
+
+export const Table = ({ newUser,userAdded,setUserAdded,showTable }: TableProps) => {
   const { data,isLoading } = useSearchUsersQuery(1); // дата с api, 1ая страница
   const { account } = useEthers(); // кошелек для отображения в таблице
 
   // удаление пользователя с таблицы
   function deleteUser(e: React.MouseEvent) {
-    document.querySelector(".added-user")?.remove();
+    setUserAdded(false)
   }
   
   if(isLoading){
     return <h1 className='loading-text'>Loading...</h1>
   } else {
   return (
+    showTable ? 
     <div className="body__bottom-right">
       <h2 className="title">
         Participation listing (Enable only for participants)
@@ -31,9 +33,9 @@ export const Table = ({ name, email }: INewUser) => {
             </tr>
           </thead>
           <tbody>
-            <tr className="added-user">
-              <td>{name}</td>
-              <td>{email}</td>
+            <tr className={`added-user ${!userAdded ? 'none' : ''}`}>
+              <td>{newUser.name}</td>
+              <td>{newUser.email}</td>
               <td className="delete-td">
                 {account?.slice(0, 20) + "..."}
                 <TiDeleteOutline
@@ -56,6 +58,6 @@ export const Table = ({ name, email }: INewUser) => {
           </tbody>
         </table>
       </div>
-    </div>
-  );}
+    </div> : <div></div>
+  )};
 };

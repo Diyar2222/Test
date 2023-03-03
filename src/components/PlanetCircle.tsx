@@ -67,7 +67,7 @@ export const PlanetCircle = ({playAnimation=true}) => {
               d="M250,40 A100,100 0 0,1 250,460"
               stroke="#E75626"
               fill="none"
-              stroke-width="1"
+              strokeWidth="1"
             />
             <circle
               className="first-circle"
