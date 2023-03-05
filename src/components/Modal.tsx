@@ -1,9 +1,10 @@
 import React, { useState,useRef } from 'react';
 
+
 function Modal() {
   const [showModal, setShowModal] = useState(true);
   const modalRef = useRef(null)
- 
+
   //Функция для закрытия модального окна
   const handleCloseModal = () => {
     setShowModal(false);

@@ -3,6 +3,7 @@ import { Body } from './pages/Body';
 import { Route, Routes } from "react-router-dom";
 import { UserPage } from "./pages/UserPage";
 import ErrorPage from "./pages/ErrorPage";
+
 function App() {
   return (
     <div className="container">

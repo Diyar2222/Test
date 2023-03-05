@@ -9,6 +9,8 @@
     font-family: $font-family;
     gap:1rem;
     &-text{
+        pointer-events: none;
+        // background-color: antiquewhite;
         position: absolute;
         top:10px;
         left:65px;
@@ -25,6 +27,8 @@
         -webkit-text-stroke: 0.1px #fff;
     }
     &-hidden{
+        pointer-events: none;
+
         position: absolute;
         top: 10px;
         left: 65px;

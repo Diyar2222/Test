@@ -25,7 +25,7 @@ a {
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
+  overflow: hidden;
   background-color: rgba(0, 0, 0, 0.5);
   line-height: 120%;
 }
@@ -119,6 +119,7 @@ header .wallet-address {
   gap: 1rem;
 }
 .body__top-text {
+  pointer-events: none;
   position: absolute;
   top: 10px;
   left: 65px;
@@ -135,6 +136,7 @@ header .wallet-address {
   -webkit-text-stroke: 0.1px #fff;
 }
 .body__top-hidden {
+  pointer-events: none;
   position: absolute;
   top: 10px;
   left: 65px;
@@ -353,6 +355,7 @@ table td {
 .planet-img {
   width: 250px;
   height: 250px;
+  pointer-events: none;
 }
 
 .line-1 {
@@ -550,6 +553,74 @@ table td {
   font-size: 3rem;
 }
 
+@media screen and (min-width: 1320px) {
+  .body__top-text {
+    font-size: 56px;
+    top: 50px;
+  }
+  .body__top-hidden {
+    top: 50px;
+    font-size: 56px;
+    z-index: 5;
+    -webkit-clip-path: circle(160px at 800px 135px);
+            clip-path: circle(160px at 800px 135px);
+  }
+  .planet-circle {
+    top: -50px;
+    left: 630px;
+  }
+  .planet-img {
+    width: 320px;
+    height: 320px;
+  }
+  .line-1 {
+    width: 370px;
+    height: 370px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #323232;
+    background-color: #1e1e20;
+    border-radius: 50%;
+  }
+  .line-2 {
+    width: 384px;
+    height: 384px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #323232;
+    background-color: #1e1e20;
+    border-radius: 50%;
+  }
+  .line-3 {
+    width: 380px;
+    height: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #323232;
+    background-color: #1e1e20;
+    border-radius: 50%;
+  }
+  .line-4 {
+    width: 470px;
+    height: 470px;
+  }
+  .roadmap {
+    top: 50px;
+    width: auto;
+  }
+  .roadmap__title {
+    font-size: 36px;
+  }
+  .roadmap-numbers {
+    font-size: 30px;
+  }
+  .roadmap-data {
+    font-size: 25px;
+  }
+}
 @media screen and (max-width: 1190px) {
   .roadmap {
     position: relative;

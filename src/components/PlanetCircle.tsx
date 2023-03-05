@@ -6,41 +6,32 @@ import { motion } from "framer-motion";
 export const PlanetCircle = ({playAnimation=true}) => { 
   const parentRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
-
+  
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (playAnimation && parentRef.current && imageRef.current) {
       const redCircleBounds = parentRef.current.getBoundingClientRect();
       // рассчет позиции картинки в зависимости от движения мышки
-      const planetX = event.clientX - redCircleBounds.left - imageRef.current.width / 2;
-      const planetY = event.clientY - redCircleBounds.top - imageRef.current.height / 2;
+      const planetX = event.clientX - redCircleBounds.left - imageRef.current.width ;
+      const planetY = event.clientY - redCircleBounds.top - imageRef.current.height ;
       // анимация на новую позицию
-      gsap.to(imageRef.current, {
-        duration: 1,
-        x: planetX,
-        y: planetY,
-        ease: "power2.out",
-      });
-      // если курсор выйдет за пределы круга, картинка возвращается на место
-      if (
-        event.clientX > redCircleBounds.left ||
-        event.clientX < redCircleBounds.right ||
-        event.clientY > redCircleBounds.bottom ||
-        event.clientY < redCircleBounds.top
-      ) {
-        handleMouseLeave();
-      }
+        gsap.to(imageRef.current, {
+          duration: 2,
+          x: planetX,
+          y: planetY,
+          ease: "power2.out",
+        });
     }
   };
   // функция выполняется когда курсор покидает круг
   const handleMouseLeave = () => {
     if (playAnimation && imageRef.current) {
-      // анимация планеты в начальную позицию
-      gsap.to(imageRef.current, {
-        duration: 1,
-        x: 0,
-        y: 0,
-        ease: "power2.out",
-      });
+        // анимация планеты в начальную позицию
+        gsap.to(imageRef.current, {
+          duration: 2,
+          x: 0,
+          y: 0,
+          ease: "power2.out",
+        });
     }
   };
   return (

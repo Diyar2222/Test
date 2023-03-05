@@ -18,17 +18,17 @@ export const Body_Top= () => {
           <h1 className='roadmap__title'>ROADMAP STATS</h1>
           <div>
             <h2 className='roadmap-numbers'>12,345</h2>
-            <p>Lorem, ipsum dolor.</p>
+            <p className='roadmap-data'>Lorem, ipsum dolor.</p>
           </div>
           <div className='underline'></div>
           <div>
             <h2 className='roadmap-numbers'>12,345</h2>
-            <p>Lorem, ipsum dolor.</p>
+            <p className='roadmap-data'>Lorem, ipsum dolor.</p>
           </div>
           <div className='underline'></div>
           <div>
             <h2 className='roadmap-numbers'>12,345</h2>
-            <p>Lorem, ipsum dolor.</p>
+            <p className='roadmap-data'>Lorem, ipsum dolor.</p>
           </div>
         </div>
     </div>
