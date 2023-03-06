@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 import { Formik,FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { InputFormProps, INewUser} from '../interfaces/interfaces'
@@ -11,7 +11,6 @@ export const InputForm = ({userAdded, setUserAdded,newUser,setNewUser,setShowTab
     name: "",
     email: "",
   };
-
   // Валидация формы
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Name is required"),
@@ -21,14 +20,21 @@ export const InputForm = ({userAdded, setUserAdded,newUser,setNewUser,setShowTab
   const handleSubmit = (values: INewUser,{ resetForm }: FormikHelpers<INewUser>) => {
     if(account) {
       setNewUser(values);
+      localStorage.setItem('newUser',JSON.stringify(values))
       setUserAdded(true);
-      setUserConnected(true)
+      localStorage.setItem('userAdded','true')
       setShowTable(true)
+      localStorage.setItem('showTable','true')
+      setUserConnected(true)
       resetForm()
     } else {
       setUserConnected(false)
     }
   };
+  useEffect(()=>{
+    setUserAdded(Boolean(localStorage.getItem('userAdded')))
+    setNewUser(JSON.parse(localStorage.getItem('newUser')||'{}'))
+  },[])
   return (
     <Formik
       initialValues={initialValues}
@@ -72,7 +78,7 @@ export const InputForm = ({userAdded, setUserAdded,newUser,setNewUser,setShowTab
             <div className="error">{formik.errors.email}</div>
           ) : null}
           <button
-            className={`button ${userAdded ? "disabled" : ""}`}
+            className={`button ${!userAdded ? "disabled" : ""}`}
             type="submit"
             disabled={userAdded ? true : false}
           >

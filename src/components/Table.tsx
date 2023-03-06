@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { useEffect } from "react";
 import { TiDeleteOutline } from "react-icons/ti";
 import { Link } from "react-router-dom";
 import { useSearchUsersQuery } from "../store/unistoryApi";
@@ -8,17 +8,21 @@ import { TableProps } from "../interfaces/interfaces";
 export const Table = ({ newUser,userAdded,setUserAdded,showTable }: TableProps) => {
   const { data,isLoading } = useSearchUsersQuery(1); // дата с api, 1ая страница
   const { account } = useEthers(); // кошелек для отображения в таблице
-
   // удаление пользователя с таблицы
   function deleteUser(e: React.MouseEvent) {
     setUserAdded(false)
+    localStorage.removeItem('userAdded')
+    localStorage.removeItem('newUser')
   }
-  
+  useEffect(()=>{
+    setUserAdded(Boolean(localStorage.getItem('userAdded')) || false)
+  },[showTable])
+
   if(isLoading){
     return <h1 className='loading-text'>Loading...</h1>
   } else {
   return (
-    showTable ? 
+    (localStorage.getItem('showTable') || false) ? 
     <div className="body__bottom-right">
       <h2 className="title">
         Participation listing (Enable only for participants)
