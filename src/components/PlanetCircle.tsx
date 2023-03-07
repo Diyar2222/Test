@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export const PlanetCircle = ({playAnimation=true}) => { 
   const parentRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
-  
+
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (playAnimation && parentRef.current && imageRef.current) {
       const redCircleBounds = parentRef.current.getBoundingClientRect();

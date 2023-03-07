@@ -19,8 +19,8 @@ a {
 
 .modal {
   display: none;
-  position: fixed;
-  z-index: 100;
+  position: absolute;
+  z-index: 10;
   left: 0;
   top: 0;
   width: 100%;
@@ -404,6 +404,14 @@ table td {
   background-color: #101012;
 }
 
+.circle {
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background-color: cornflowerblue;
+  position: absolute;
+}
+
 .tag {
   position: absolute;
   top: 5%;
@@ -440,6 +448,7 @@ table td {
 
 .line-svg {
   position: absolute;
+  pointer-events: none;
 }
 
 .user-page {

@@ -22,7 +22,7 @@ export const Table = ({ newUser,userAdded,setUserAdded,showTable }: TableProps) 
     return <h1 className='loading-text'>Loading...</h1>
   } else {
   return (
-    (localStorage.getItem('showTable') || false) ? 
+    (localStorage.getItem('showTable')) ? 
     <div className="body__bottom-right">
       <h2 className="title">
         Participation listing (Enable only for participants)

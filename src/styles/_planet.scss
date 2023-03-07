@@ -26,6 +26,13 @@
     @include planet-circles;
     background-color: $backgroundColor;
 }
+.circle{
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    background-color: cornflowerblue;
+    position: absolute;
+}
 .tag{
     position: absolute;
     top: 5%;
@@ -60,5 +67,6 @@
     z-index: 3;
 }
 .line-svg{
-    position: absolute
+    position: absolute;
+    pointer-events: none;
 }
