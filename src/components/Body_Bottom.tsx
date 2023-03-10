@@ -1,4 +1,4 @@
-import {useState,useEffect} from 'react'
+import {useState} from 'react'
 import {Table} from './Table'
 import { InputForm } from './InputForm';
 

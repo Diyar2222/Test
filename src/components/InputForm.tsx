@@ -1,12 +1,12 @@
-import {useState,useEffect} from 'react';
+import {useEffect, useState} from 'react';
 import { Formik,FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { InputFormProps, INewUser} from '../interfaces/interfaces'
-import { useEthers } from "@usedapp/core";
+import { useAppSelector } from '../store/store';
 
 export const InputForm = ({userAdded, setUserAdded,newUser,setNewUser,setShowTable }: InputFormProps) => {
-  const [userConnected,setUserConnected] = useState(true)
-  const { account } = useEthers(); // кошелек для отображения в таблице
+  const login = useAppSelector(state=>state.login.loggedIn)
+  const [userLogged,setUserLogged] = useState(true)
   const initialValues = { //начальные данные пользователя для Formik формы
     name: "",
     email: "",
@@ -18,18 +18,19 @@ export const InputForm = ({userAdded, setUserAdded,newUser,setNewUser,setShowTab
   });
   // функция для того чтобы добавить пользователя после заполнения формы
   const handleSubmit = (values: INewUser,{ resetForm }: FormikHelpers<INewUser>) => {
-    if(account) {
+    if(login){
       setNewUser(values);
       localStorage.setItem('newUser',JSON.stringify(values))
       setUserAdded(true);
       localStorage.setItem('userAdded','true')
       setShowTable(true)
       localStorage.setItem('showTable','true')
-      setUserConnected(true)
       resetForm()
+      setUserLogged(true)
     } else {
-      setUserConnected(false)
+      setUserLogged(false)
     }
+      
   };
   useEffect(()=>{
     setUserAdded(Boolean(localStorage.getItem('userAdded')))
@@ -84,7 +85,7 @@ export const InputForm = ({userAdded, setUserAdded,newUser,setNewUser,setShowTab
           >
             Get early access
           </button>
-          {!userConnected && <p className='error'>Connect to metamask wallet</p>}
+          {!userLogged && <p className='error'>Connect to account</p>}
         </form>
       )}
     </Formik>

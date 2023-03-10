@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import { TiDeleteOutline } from "react-icons/ti";
 import { Link } from "react-router-dom";
 import { useSearchUsersQuery } from "../store/unistoryApi";
-import { useEthers } from "@usedapp/core";
 import { TableProps } from "../interfaces/interfaces";
 
 export const Table = ({ newUser,userAdded,setUserAdded,showTable }: TableProps) => {
   const { data,isLoading } = useSearchUsersQuery(1); // дата с api, 1ая страница
-  const { account } = useEthers(); // кошелек для отображения в таблице
+  let accountWallet = '0xskd12j43j1hq3123uue3fdkk9gfr840394' //hard-code кошелек для отображения в таблице
+
   // удаление пользователя с таблицы
   function deleteUser(e: React.MouseEvent) {
     setUserAdded(false)
@@ -41,7 +41,7 @@ export const Table = ({ newUser,userAdded,setUserAdded,showTable }: TableProps) 
               <td>{newUser.name}</td>
               <td>{newUser.email}</td>
               <td className="delete-td">
-                {account?.slice(0, 20) + "..."}
+                {accountWallet.slice(0, 20) + "..."}
                 <TiDeleteOutline
                   onClick={(e) => deleteUser(e)}
                   className="delete-icon"

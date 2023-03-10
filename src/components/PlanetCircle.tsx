@@ -10,9 +10,10 @@ export const PlanetCircle = ({playAnimation=true}) => {
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (playAnimation && parentRef.current && imageRef.current) {
       const redCircleBounds = parentRef.current.getBoundingClientRect();
+      console.log(imageRef.current.height)
       // рассчет позиции картинки в зависимости от движения мышки
-      const planetX = event.clientX - redCircleBounds.left - imageRef.current.width+20 ;
-      const planetY = event.clientY - redCircleBounds.top - imageRef.current.height+20 ;
+      const planetX = event.clientX - redCircleBounds.left - imageRef.current.width + 20;
+      const planetY = event.clientY - redCircleBounds.top - imageRef.current.height + 20;
       // анимация на новую позицию
         gsap.to(imageRef.current, {
           duration: 2,

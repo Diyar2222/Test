@@ -2,10 +2,10 @@
 
 ## Использованные технологии
  - Typescript
- - React, React-Router
- - RTK Query для запроса данных
+ - React, React-Router для перехода на страницу пользователя
+ - RTK, rtk-query для запроса данных
  - SASS stylesheet
  - Formik и Yup для валидации формы
- - Framer motion для анимации оранжевой линий 
+ - Framer motion для анимации оранжевой линий вокруг планеты
  - Green sock для анимации притягивания планеты
- - useDapp для подключения кошелька Metamask
+ - Local storage для хранения данных в таблице

@@ -1,14 +1,15 @@
-import { useEthers } from "@usedapp/core";
-
+import { accountAction } from "../store/accountSlice";
+import { useAppDispatch, useAppSelector } from "../store/store";
 
 export const Header = () => {
-  const {activateBrowserWallet,account,deactivate} = useEthers()
+  const dispatch = useAppDispatch()
+  const login = useAppSelector(state=>state.login.loggedIn)
   return (
     <header>
         <div className='logo'>Logo</div>
-          {account 
-          ? <div onClick={(deactivate)} className='wallet-address'>{account?.slice(0,19)+'...'}</div>
-          : <button className='button' onClick={activateBrowserWallet}>connect metamask</button>}
+          {login
+          ? <button className='button' onClick={()=>dispatch(accountAction.login())}>Log Out</button>
+          : <button className='button' onClick={()=>dispatch(accountAction.login())}>Log In</button>}
     </header>
   )
 }

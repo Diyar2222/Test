@@ -3,11 +3,12 @@
     overflow-y: scroll;
 }
 table{
-    width: 95%;
+    width: 90%;
     border-collapse: collapse; 
     color:#fff;
     max-height: 300px;
     overflow-y: auto;
+    // margin-left: 200px;
     a{
         display: contents; 
         text-decoration: none;
