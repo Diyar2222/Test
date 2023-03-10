@@ -1,4 +1,4 @@
-# Unistory test 
+# Test 
 Онлайн сайт - https://test-project-dr.netlify.app/
 ## Использованные технологии
  - Typescript
